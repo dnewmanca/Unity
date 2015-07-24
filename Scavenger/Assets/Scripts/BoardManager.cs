@@ -104,12 +104,4 @@ public class BoardManager : MonoBehaviour
 		gridPositions.RemoveAt (randomIndex);
 		return randomPostion;
 	}
-
-	void Start () {
-	
-	}
-
-	void Update () {
-	
-	}
 }

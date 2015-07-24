@@ -55,20 +55,17 @@ public abstract class MovingObject : MonoBehaviour
 		RaycastHit2D hit;
 		bool canMove = Move (xDir, yDir, out hit);
 
-		T hitComponent = hit.transform.GetComponent<T> ();
-
-		if (!canMove && hitComponent != null)
+		if(hit.transform != null)
 		{
-			OnCantMove (hitComponent);
-		}
+			T hitComponent = hit.transform.GetComponent<T> ();
 
+			if (!canMove && hitComponent != null)
+			{
+				OnCantMove (hitComponent);
+			}
+		}
 	}
 
 	protected abstract void OnCantMove<T> (T component)
 		where T: Component;
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
